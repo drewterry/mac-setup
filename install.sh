@@ -247,12 +247,18 @@ function is_confirmed() {
   return 1
 }
 
+function safeExit() {
+  sudo -k
+
+  exit 2
+}
 ######################
 
 info "Mac OS Setup"
 info "This script will install your brewfile, OS defaults, and dotfiles, and optionally perform additional setup tasks."
 info "To begin, enter your password, to exit use Control-C"
 
+trap "safeExit" 2
 sudo -v
 
 installCommandLineTools
