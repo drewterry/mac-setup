@@ -2,6 +2,10 @@
 
 export SETUP_DIR="$HOME/.setup"
 
+# Make utilities available
+
+PATH="$SETUP_DIR/bin:$PATH"
+
 # Main Script is at the bottom of this file
 
 function installCommandLineTools() {
