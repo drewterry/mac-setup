@@ -243,11 +243,13 @@ function is_confirmed() {
 
 sudo -v
 
-installCommandLineTools
-installHomebrew
-brewCleanup
-installBrewfile
-installRuby
-installNode
-configureSSH
-syncVSCodeSettings
+echo 'Works'
+# installCommandLineTools
+# installHomebrew
+# brewCleanup
+# installBrewfile
+# installRuby
+# installNode
+# configureSSH
+# syncVSCodeSettings
+# . macOSDefaults.sh
