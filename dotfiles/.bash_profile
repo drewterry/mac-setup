@@ -4,8 +4,8 @@
 
 # Resolve SETUP_DIR
 
-if [ -d "$HOME/.setup/dotfiles" ]; then
-  SETUP_DIR="$HOME/.setup/dotfiles"
+if [ -d "$HOME/.setup" ]; then
+  SETUP_DIR="$HOME/.setup"
 else
   echo "Unable to find dotfiles, exiting."
   return
@@ -17,7 +17,7 @@ PATH="$SETUP_DIR/bin:$PATH"
 
 # Finally we can source the dotfiles (order matters)
 
-for DOTFILE in "$SETUP_DIR"/system/.{function,path,env,alias,completion,prompt,nvm,rvm,vsc}; do
+for DOTFILE in "$SETUP_DIR"/dotfiles/system/.{function,path,env,alias,completion,prompt,nvm,rvm,vsc}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
   echo "$DOTFILE"
 done
