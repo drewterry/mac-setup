@@ -26,7 +26,7 @@ cask 'virtualbox'
 cask 'google-chrome'
 cask 'google-drive-file-stream'
 cask 'google-backup-and-sync'
-cask 'Slack'
+cask 'slack'
 cask 'spotify'
 cask 'spotify-notifications'
 mas 'Todoist', id: 585829637
