@@ -14,6 +14,7 @@ fi
 # Make utilities available
 
 PATH="$SETUP_DIR/bin:$PATH"
+echo $PATH
 
 # Finally we can source the dotfiles (order matters)
 
