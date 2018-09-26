@@ -1,6 +1,7 @@
 # mac-setup
 Setup script for mac os
-_NOTE THIS IS A WIP_
+
+__NOTE THIS IS A WIP__
 
 *I highly recommended reading through the shell scripts and dotfiles before installing this.  Many of these settings are preferences, and yours may differ.*
 
