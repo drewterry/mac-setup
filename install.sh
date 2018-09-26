@@ -241,15 +241,22 @@ function is_confirmed() {
 
 ######################
 
+info "Mac OS Setup"
+info "This script will install your brewfile, OS defaults, and dotfiles, and optionally do the following:
+Install RVM/Ruby
+Install NVM/Node
+Configure Github SSH
+Install VS Code Settings Sync Extension"
+info "To begin, enter your password, to exit use Control-C"
 sudo -v
 
-echo 'Works'
-# installCommandLineTools
-# installHomebrew
-# brewCleanup
-# installBrewfile
-# installRuby
-# installNode
-# configureSSH
-# syncVSCodeSettings
-# . macOSDefaults.sh
+installCommandLineTools
+installHomebrew
+brewCleanup
+installBrewfile
+. macOSDefaults.sh
+
+installRuby
+installNode
+configureSSH
+syncVSCodeSettings
