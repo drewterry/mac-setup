@@ -124,10 +124,10 @@ function installDotfiles() {
     ln -sfv "$SETUP_DIR/dotfiles/.gitconfig" ~
     ln -sfv "$SETUP_DIR/dotfiles/.gitignore_global" ~
 
-    input "(gitconfig) Enter your first and last name."
+    input "(gitconfig) Enter your first and last name.\n"
     read gitName
     git config --global --add user.name "$gitName"
-    input "(gitconfig) Enter your email."
+    input "(gitconfig) Enter your email.\n"
     read gitEmail
     git config --global --add user.email "$gitEmail"
 
