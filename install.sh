@@ -252,6 +252,7 @@ function is_confirmed() {
 info "Mac OS Setup"
 info "This script will install your brewfile, OS defaults, and dotfiles, and optionally perform additional setup tasks."
 info "To begin, enter your password, to exit use Control-C"
+
 sudo -v
 
 installCommandLineTools
@@ -264,3 +265,5 @@ installRuby
 installNode
 configureSSH
 syncVSCodeSettings
+
+sudo -k
