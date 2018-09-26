@@ -31,7 +31,7 @@ ps0() {
 }
 
 ps1() {
-  source "$DOTFILES_DIR"/system/.prompt
+  source "$SETUP_DIR"/system/.prompt
 }
 
 # Get named var (usage: get "VAR_NAME")
@@ -44,4 +44,14 @@ get() {
 
 prepend-path() {
   [ -d $1 ] && PATH="$1:$PATH"
+}
+
+# Check executable
+
+is-executable() {
+  if type "$1" >/dev/null 2>&1; then
+    exit 0
+  else
+    exit 1
+  fi
 }
