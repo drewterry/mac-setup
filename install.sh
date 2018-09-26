@@ -100,7 +100,7 @@ function installBrewfile() {
         appendBrewfile ${l}
       fi
     fi
-  done <Brewfile
+  done <"$HOME/.dotfiles/Brewfile"
 
   brew bundle --file=- <<EOF
   ${BREWFILE}
