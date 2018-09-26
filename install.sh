@@ -66,38 +66,6 @@ function installHomebrew () {
   success "Homebrew installed"
 }
 
-function installMacOSDefaults() {
-  seek_confirmation "Would you like to install the custom Mac OS Defaults?"
-  if is_confirmed; then
-    info "Installing Mac OS Defaults..."
-
-    . "$SETUP_DIR/macOSDefaults.sh"
-
-    success "Mac OS Defaults Installed"
-  fi
-}
-
-function installDotfiles() {
-  seek_confirmation "Would you like to install custom dotfiles?"
-  if is_confirmed; then
-    info "Installing Dotfiles..."
-
-    ln -sfv "$SETUP_DIR/dotfiles/.bash_profile" ~
-    ln -sfv "$SETUP_DIR/dotfiles/.inputrc" ~
-    ln -sfv "$SETUP_DIR/dotfiles/.gitconfig" ~
-    ln -sfv "$SETUP_DIR/dotfiles/.gitignore_global" ~
-
-    input "(gitconfig) Enter your first and last name."
-    read gitName
-    git config --global --add user.name "$gitName"
-    input "(gitconfig) Enter your email."
-    read gitEmail
-    git config --global --add user.email "$gitEmail"
-
-    success "Dotfiles Installed"
-  fi
-}
-
 function brewCleanup () {
   # This function cleans up an initial Homebrew installation
 
@@ -131,6 +99,38 @@ function installBrewfile() {
 EOF
 
   success "Brewfile installed"
+}
+
+function installMacOSDefaults() {
+  seek_confirmation "Would you like to install the custom Mac OS Defaults?"
+  if is_confirmed; then
+    info "Installing Mac OS Defaults..."
+
+    . "$SETUP_DIR/macOSDefaults.sh"
+
+    success "Mac OS Defaults Installed"
+  fi
+}
+
+function installDotfiles() {
+  seek_confirmation "Would you like to install custom dotfiles?"
+  if is_confirmed; then
+    info "Installing Dotfiles..."
+
+    ln -sfv "$SETUP_DIR/dotfiles/.bash_profile" ~
+    ln -sfv "$SETUP_DIR/dotfiles/.inputrc" ~
+    ln -sfv "$SETUP_DIR/dotfiles/.gitconfig" ~
+    ln -sfv "$SETUP_DIR/dotfiles/.gitignore_global" ~
+
+    input "(gitconfig) Enter your first and last name."
+    read gitName
+    git config --global --add user.name "$gitName"
+    input "(gitconfig) Enter your email."
+    read gitEmail
+    git config --global --add user.email "$gitEmail"
+
+    success "Dotfiles Installed"
+  fi
 }
 
 function installRuby() {
@@ -172,7 +172,6 @@ function installNode() {
 
   success "NVM and Node LTS are installed"
 }
-
 
 function configureSSH() {
   info "Configuring SSH"
@@ -284,6 +283,10 @@ info "To begin, enter your password, to exit use Control-C"
 
 trap "safeExit" 2
 sudo -v
+
+input "test"
+read -p " (y/n) " -n 1
+echo ""
 
 # installCommandLineTools
 # installHomebrew
