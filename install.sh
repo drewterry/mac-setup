@@ -66,6 +66,14 @@ function installHomebrew () {
   success "Homebrew installed"
 }
 
+function installMacOSDefaults() {
+  info "Installing Mac OS Defaults..."
+
+  . "$HOME/.dotfiles/macOSDefaults.sh"
+
+  success "Mac OS Defaults Installed"
+}
+
 function brewCleanup () {
   # This function cleans up an initial Homebrew installation
 
@@ -242,11 +250,7 @@ function is_confirmed() {
 ######################
 
 info "Mac OS Setup"
-info "This script will install your brewfile, OS defaults, and dotfiles, and optionally do the following:
-Install RVM/Ruby
-Install NVM/Node
-Configure Github SSH
-Install VS Code Settings Sync Extension"
+info "This script will install your brewfile, OS defaults, and dotfiles, and optionally perform additional setup tasks."
 info "To begin, enter your password, to exit use Control-C"
 sudo -v
 
@@ -254,7 +258,7 @@ installCommandLineTools
 installHomebrew
 brewCleanup
 installBrewfile
-. macOSDefaults.sh
+installMacOSDefaults
 
 installRuby
 installNode
