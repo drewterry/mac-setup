@@ -1,0 +1,47 @@
+# Create a new directory and enter it
+
+mk() {
+  mkdir -p "$@" && cd "$@"
+}
+
+# Open man page as PDF
+
+manpdf() {
+  man -t "$1" | open -f -a /Applications/Preview.app/
+}
+
+# Fuzzy find file/dir
+
+ff() {  find . -type f -iname "$1";}
+fff() { find . -type f -iname "*$1*";}
+fd() {  find . -type d -iname "$1";}
+fdf() { find . -type d -iname "*$1*";}
+
+# Show disk usage of current folder, or list with depth
+
+duf() {
+  du --max-depth=${1:-0} -c | sort -r -n | awk '{split("K M G",v); s=1; while($1>1024){$1/=1024; s++} print int($1)v[s]"\t"$2}'
+}
+
+# Switch long/short prompt
+
+ps0() {
+  unset PROMPT_COMMAND
+  PS1='$ '
+}
+
+ps1() {
+  source "$DOTFILES_DIR"/system/.prompt
+}
+
+# Get named var (usage: get "VAR_NAME")
+
+get() {
+  echo "${!1}"
+}
+
+# Add to path
+
+prepend-path() {
+  [ -d $1 ] && PATH="$1:$PATH"
+}

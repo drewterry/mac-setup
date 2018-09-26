@@ -67,17 +67,35 @@ function installHomebrew () {
 }
 
 function installMacOSDefaults() {
-  info "Installing Mac OS Defaults..."
+  seek_confirmation "Would you like to install the custom Mac OS Defaults?"
+  if is_confirmed; then
+    info "Installing Mac OS Defaults..."
 
-  . "$HOME/.setup/macOSDefaults.sh"
+    . "$SETUP_DIR/macOSDefaults.sh"
 
-  success "Mac OS Defaults Installed"
+    success "Mac OS Defaults Installed"
+  fi
 }
 
 function installDotfiles() {
-  info "Installing Dotfiles..."
+  seek_confirmation "Would you like to install custom dotfiles?"
+  if is_confirmed; then
+    info "Installing Dotfiles..."
 
-  success "Dotfiles Installed"
+    ln -sfv "$SETUP_DIR/dotfiles/.bash_profile" ~
+    ln -sfv "$SETUP_DIR/dotfiles/.inputrc" ~
+    ln -sfv "$SETUP_DIR/dotfiles/.gitconfig" ~
+    ln -sfv "$SETUP_DIR/dotfiles/.gitignore_global" ~
+
+    input "(gitconfig) Enter your first and last name."
+    read gitName
+    git config --global --add user.name "$gitName"
+    input "(gitconfig) Enter your email."
+    read gitEmail
+    git config --global --add user.email "$gitEmail"
+
+    success "Dotfiles Installed"
+  fi
 }
 
 function brewCleanup () {
@@ -106,7 +124,7 @@ function installBrewfile() {
         appendBrewfile ${l}
       fi
     fi
-  done <"$HOME/.setup/Brewfile"
+  done <"$SETUP_DIR/Brewfile"
 
   brew bundle --file=- <<EOF
   ${BREWFILE}
@@ -119,15 +137,13 @@ function installRuby() {
 
   info "Checking for RVM (Ruby Version Manager)..."
 
-  local RUBYVERSION="2.1.2" # Version of Ruby to install via RVM
+  local RUBYVERSION="2.5" # Version of Ruby to install via RVM
 
   # Check for RVM
   if [ ! "$(type -P rvm)" ]; then
     seek_confirmation "Couldn't find RVM. Install it?"
     if is_confirmed; then
       curl -L https://get.rvm.io | bash -s stable
-      source "${HOME}/.rvm/scripts/rvm"
-      source "${HOME}/.bash_profile"
       #rvm get stable --autolibs=enable
       rvm install ${RUBYVERSION}
       rvm use ${RUBYVERSION} --default
@@ -187,7 +203,7 @@ function configureSSH() {
 function syncVSCodeSettings() {
   seek_confirmation "Would you like to install the VS Code Settings Sync extension?"
   if is_confirmed; then
-    if [ ! "$(type -P nvm)" ]; then
+    if [ ! "$(type -P code)" ]; then
       cat << EOF >> ~/.bash_profile
         # Add Visual Studio Code (code)
         export PATH="\$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
@@ -260,23 +276,25 @@ function safeExit() {
 }
 ######################
 
+export SETUP_DIR = $HOME/.setup
+
 info "Mac OS Setup"
-info "This script will install your brewfile, OS defaults, and dotfiles, and optionally perform additional setup tasks."
+info "This script will install your brewfile and optionally perform additional setup tasks."
 info "To begin, enter your password, to exit use Control-C"
 
 trap "safeExit" 2
 sudo -v
 
-installCommandLineTools
-installHomebrew
-brewCleanup
-installBrewfile
+# installCommandLineTools
+# installHomebrew
+# brewCleanup
+# installBrewfile
+
 installMacOSDefaults
 installDotfiles
-
-installRuby
-installNode
-configureSSH
-syncVSCodeSettings
+# installRuby
+# installNode
+# configureSSH
+# syncVSCodeSettings
 
 sudo -k
