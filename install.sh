@@ -301,3 +301,5 @@ installDotfiles
 # syncVSCodeSettings
 
 sudo -k
+
+. ~/.bash_profile
