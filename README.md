@@ -10,7 +10,7 @@ __NOTE THIS IS A WIP__
 The following command will run `setup.sh`, download this repository, and execute `install.sh`.
 
 ```
-curl -o- https://raw.githubusercontent.com/drewterry/mac-setup/master/setup.sh | bash
+bash <(curl -sL https://raw.githubusercontent.com/drewterry/mac-setup/master/setup.sh)
 ```
 
 # Customization

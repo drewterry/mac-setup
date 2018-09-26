@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export SETUP_DIR="$HOME/.setup"
+
 # Main Script is at the bottom of this file
 
 function installCommandLineTools() {
@@ -275,18 +277,12 @@ function safeExit() {
 }
 ######################
 
-export SETUP_DIR = $HOME/.setup
-
 info "Mac OS Setup"
 info "This script will install your brewfile and optionally perform additional setup tasks."
 info "To begin, enter your password, to exit use Control-C"
 
 trap "safeExit" 2
 sudo -v
-
-input "test"
-read -p " (y/n) " -n 1
-echo ""
 
 # installCommandLineTools
 # installHomebrew
