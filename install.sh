@@ -69,9 +69,15 @@ function installHomebrew () {
 function installMacOSDefaults() {
   info "Installing Mac OS Defaults..."
 
-  . "$HOME/.dotfiles/macOSDefaults.sh"
+  . "$HOME/.setup/macOSDefaults.sh"
 
   success "Mac OS Defaults Installed"
+}
+
+function installDotfiles() {
+  info "Installing Dotfiles..."
+
+  success "Dotfiles Installed"
 }
 
 function brewCleanup () {
@@ -100,7 +106,7 @@ function installBrewfile() {
         appendBrewfile ${l}
       fi
     fi
-  done <"$HOME/.dotfiles/Brewfile"
+  done <"$HOME/.setup/Brewfile"
 
   brew bundle --file=- <<EOF
   ${BREWFILE}
@@ -266,6 +272,7 @@ installHomebrew
 brewCleanup
 installBrewfile
 installMacOSDefaults
+installDotfiles
 
 installRuby
 installNode
