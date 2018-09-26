@@ -11,6 +11,10 @@ else
   return
 fi
 
+# Make utilities available
+
+PATH="$SETUP_DIR/bin:$PATH"
+
 # Finally we can source the dotfiles (order matters)
 
 for DOTFILE in "$SETUP_DIR"/system/.{function,path,env,alias,completion,prompt,nvm,rvm,vsc}; do
