@@ -1,6 +1,8 @@
 # mac-setup
 Setup script for mac os
 
+*I highly recommended reading through the shell scripts and dotfiles before installing this.*
+
 # Running
 
 The following command will run `setup.sh`, download this repository, and execute `install.sh`.
