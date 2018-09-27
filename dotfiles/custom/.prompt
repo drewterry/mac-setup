@@ -1,5 +1,5 @@
 ## Prompt
-
+echo "prompt"
 _bash_prompt_config() {
 
   local USER_SYMBOL="\u"
