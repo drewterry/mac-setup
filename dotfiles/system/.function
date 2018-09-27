@@ -31,7 +31,7 @@ ps0() {
 }
 
 ps1() {
-  source "$SETUP_DIR"/system/.prompt
+  source "$SETUP_DIR"/dotfiles/custom/.prompt
 }
 
 # Get named var (usage: get "VAR_NAME")
