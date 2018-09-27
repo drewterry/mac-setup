@@ -254,8 +254,10 @@ function syncVSCodeSettings() {
 EOF
     fi
     code -—install-extension shan.code-settings-sync
-    success "VS Code Sync Extension Installed.  Open VS Code and press 'Shift + Alt + D' to sync settings"
+    success "VS Code Sync Extension Installed."
+    info "Press 'Shift + Alt + D' in VS Code to sync settings."
     code
+    seek_confirmation "Continue?"
   fi 
 }
 
@@ -343,3 +345,5 @@ configureSSH
 syncVSCodeSettings
 
 sudo -k
+
+success "Mac OS Setup Complete"
