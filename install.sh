@@ -135,6 +135,8 @@ function installDotfiles() {
     read gitEmail
     git config --global --add user.email "$gitEmail"
 
+    . ~/.bash_profile
+
     success "Dotfiles Installed"
   fi
 }
@@ -231,12 +233,13 @@ bold=$(tput bold)
 reset=$(tput sgr0)
 red=$(tput setaf 1)
 green=$(tput setaf 76)
+cyan=$(tput setaf 6)
 
 function _alert() {
   if [ "${1}" = "error" ]; then local color="${bold}${red}"; fi
   if [ "${1}" = "warning" ]; then local color="${red}"; fi
   if [ "${1}" = "success" ]; then local color="${green}"; fi
-  if [ "${1}" = "input" ]; then local color="${bold}"; printLog="false"; fi
+  if [ "${1}" = "input" ]; then local color="${bold}${cyan}"; printLog="false"; fi
   if [ "${1}" = "info" ]; then local color=""; fi
   echo -e "$(date +"%r") ${color}$(printf "[%9s]" "${1}") ${_message}${reset}";
 }
@@ -301,5 +304,3 @@ installDotfiles
 # syncVSCodeSettings
 
 sudo -k
-
-. ~/.bash_profile
