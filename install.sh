@@ -171,7 +171,8 @@ function installNode() {
   info "Checking for NVM (Node Version Manager)..."
 
   # Check for NVM
-  . ~/.nvm/nvm.sh 2>/dev/null
+
+  . "${SETUP_DIR}/dotfiles/custom/.nvm"
   if [[ ! $(nvm --version 2>/dev/null) ]]; then
     seek_confirmation "Couldn't find NVM. Install it?"
     if is_confirmed; then
