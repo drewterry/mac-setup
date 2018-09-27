@@ -2,6 +2,6 @@
 
 mkdir -p "$HOME/.setup"
 
-curl -L https://github.com/drewterry/mac-setup/tarball/master | tar -xzv -C ~/.setup --strip-components=1 --exclude='{.gitignore}'
+curl -L https://github.com/drewterry/mac-setup/tarball/master | tar -xz -C ~/.setup --strip-components=1 --exclude='{.gitignore}'
 
-$HOME/.setup/install.sh
+. $HOME/.setup/install.sh

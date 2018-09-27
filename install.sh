@@ -216,13 +216,13 @@ function configureSSH() {
     open https://github.com/account/ssh
 
     seek_confirmation "Test Github Authentication via ssh?"
-      if is_confirmed; then
-        info "Note that even when successful, this will fail the script."
-        ssh -T git@github.com
-      fi
+    if is_confirmed; then
+      info "Note that even when successful, this will fail the script."
+      ssh -T git@github.com
+    fi
+    
+    success "SSH Configured"
   fi
-
-  success "SSH Configured"
 }
 
 function syncVSCodeSettings() {
@@ -311,7 +311,6 @@ sudo -v
 
 installCommandLineTools
 installHomebrew
-brewCleanup
 installBrewfile
 
 installMacOSDefaults
