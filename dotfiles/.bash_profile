@@ -1,6 +1,6 @@
 # If not running interactively, don't do anything
 
-# [ -z "$PS1" ] && return
+[ -z "$PS1" ] && echo "caught ya"
 
 # Resolve SETUP_DIR
 
