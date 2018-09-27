@@ -20,7 +20,6 @@ echo $PATH
 
 for DOTFILE in "$SETUP_DIR"/dotfiles/system/.{function,path,env,alias,completion,prompt,nvm,rvm,vsc}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
-  echo "$DOTFILE"
 done
 
 # Clean up
