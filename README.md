@@ -1,6 +1,21 @@
 # mac-setup
 
-Setup script for mac os
+Setup script for Mac OS X, which does the following:
+
+- Install CommandLineTools
+- Install Homebrew
+- Install Brewfile
+ - `package-lists/Brewfile` shows all applications to be installed.  RVM and NVM are optional during installation.
+
+The script will also prompt to do the following:
+
+- Install custom MacOSDefaults
+- Install custom dotfiles
+- Install rvm and Ruby
+- Install nvm and Node LTS
+  - Also installs global npm packages listed in `package-lists/npm-global`
+- Configure Github SSH
+- Install VS Code Extension "Setting Sync" which syncs preferences and extensions via a gist.
 
 *I highly recommended reading through the shell scripts and dotfiles before installing this.  Many of these settings are preferences, and yours may differ.*
 
