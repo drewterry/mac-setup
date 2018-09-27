@@ -137,10 +137,6 @@ function installDotfiles() {
     read gitEmail
     git config --global --add user.email "$gitEmail"
 
-    PS1="tmp"
-    . ~/.bash_profile
-    get PS1
-
     success "Dotfiles Installed"
   fi
 }
@@ -335,17 +331,17 @@ info "To begin, enter your password, to exit use Control-C"
 trap "safeExit" 2
 sudo -v
 
-# installCommandLineTools
-# installHomebrew
-# installBrewfile
+installCommandLineTools
+installHomebrew
+installBrewfile
 
-# installMacOSDefaults
+installMacOSDefaults
 installDotfiles
-# installRuby
-# installNode
-# configureSSH
+installRuby
+installNode
+configureSSH
 syncVSCodeSettings
 
 sudo -k
 
-success "Mac OS Setup Complete"
+success "Mac OS Setup Complete.  Type 'reload' to refresh shell."
