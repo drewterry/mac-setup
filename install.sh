@@ -324,7 +324,7 @@ function safeExit() {
 }
 ######################
 
-echo "\n\n\n"
+clear
 header "Mac OS Setup"
 info "This script will install your brewfile and optionally perform additional setup tasks."
 info "To begin, enter your password, to exit use Control-C"
