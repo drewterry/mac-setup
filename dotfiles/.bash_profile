@@ -18,9 +18,9 @@ echo $PATH
 
 # Finally we can source the dotfiles (order matters)
 
+GLOBIGNORE
 for DOTFILE in "$SETUP_DIR"/dotfiles/{system/.{function,path},custom/.*}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
-  echo $DOTFILE
 done
 
 # Clean up
