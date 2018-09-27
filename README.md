@@ -15,7 +15,7 @@ bash <(curl -sL https://raw.githubusercontent.com/drewterry/mac-setup/master/set
 
 # Customization
 If you would like to tweak these files, please feel free to fork the repo.  A few helpful hints:
-- Anything in the dotfiles subdirectory will be sym-linked to `~/`.
+- Anything in `dotfiles\custom` is sourced in `.bash_profile`, so adding dotfiles here will cause them to be run on load.
 - `Brewfile` can be used to install most applications. Try `brew search` to find the proper names.
   - Note: Mac App Store apps are not currently supported, due to [bug #164](https://github.com/mas-cli/mas/issues/164).
 - VS Code Setting Sync Extension syncs all of your extensions and settings to a gist, which is very helpful.  `install.sh` installs this extension, then prompts you to open VS Code and type `Shift-Alt-D` to setup your environment.
