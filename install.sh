@@ -140,7 +140,7 @@ function installDotfiles() {
     PS1="tmp"
     . ~/.bash_profile
     get PS1
-    
+
     success "Dotfiles Installed"
   fi
 }

@@ -102,6 +102,4 @@ parse_git_branch() {
 _bash_prompt_config
 unset _bash_prompt_config
 
-bash_prompt_command
-
 PROMPT_COMMAND=bash_prompt_command
