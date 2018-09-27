@@ -183,22 +183,40 @@ function installNode() {
 
       brew install nvm
 
-      . "${SETUP_DIR}/system/.nvm"
+      . "${SETUP_DIR}/custom/.nvm"
       
-      nvm install --lts
+      # nvm install --lts
 
-      # Globally install with npm
+      # # Globally install with npm
 
-      packages=()
-      while read -r; do packages+=("$REPLY"); done <"package-lists/npm-global"
+      # packages=()
+      # while read -r; do packages+=("$REPLY"); done <"$SETUP_DIR/package-lists/npm-global"
 
-      npm install -g "${packages[@]}"
+      # npm install -g "${packages[@]}"
       
-      npm cache clean
+      # npm cache clean
+
+      success "NVM installed"
+    else
+      return 0
     fi
   fi
 
-  success "NVM, Node LTS, and global packages are installed"
+  seek_confirmation "Install Node LTS and global NPM packages?"
+  if is_confirmed; then
+    nvm install --lts
+
+    # Globally install with npm
+
+    packages=()
+    while read -r; do packages+=("$REPLY"); done <"$SETUP_DIR/package-lists/npm-global"
+
+    npm install -g "${packages[@]}"
+    
+    npm cache clean
+
+    success "Node LTS and global NPM packages installed"
+  fi
 }
 
 function configureSSH() {
