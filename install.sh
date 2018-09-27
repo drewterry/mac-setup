@@ -104,6 +104,8 @@ function installBrewfile() {
   ${BREWFILE}
 EOF
 
+  brewCleanup
+
   success "Brewfile installed"
 }
 
@@ -155,6 +157,9 @@ function installRuby() {
       #rvm get stable --autolibs=enable
       rvm install ${RUBYVERSION}
       rvm use ${RUBYVERSION} --default
+
+      gem cleanup
+      rvm cleanup all
     fi
   fi
 
@@ -175,6 +180,8 @@ function installNode() {
       [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
       [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
       nvm install --lts
+      
+      npm cache clean
     fi
   fi
 

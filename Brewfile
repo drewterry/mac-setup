@@ -16,6 +16,8 @@ brew 'docker'
 # cask 'minikube'
 
 # Utilities
+brew 'wget'
+brew 'tree'
 cask 'font-fira-code'
 cask 'virtualbox'
 # cask 'hyper'
