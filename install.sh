@@ -214,8 +214,6 @@ function installNode() {
 
     npm install -g "${packages[@]}"
     
-    npm cache clean --force
-
     success "Node LTS and global NPM packages installed"
   fi
 }
