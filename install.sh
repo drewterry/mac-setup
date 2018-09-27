@@ -100,7 +100,9 @@ function installBrewfile() {
     fi
   done <"$SETUP_DIR/package-lists/Brewfile"
 
-  brew bundle --file=- <<<${BREWFILE}
+  brew bundle --file=- <<EOF
+  ${BREWFILE}
+EOF
 
   brewCleanup
 
