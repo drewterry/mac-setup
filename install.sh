@@ -220,7 +220,7 @@ function configureSSH() {
       info "Note that even when successful, this will fail the script."
       ssh -T git@github.com
     fi
-    
+
     success "SSH Configured"
   fi
 }
@@ -252,19 +252,22 @@ reset=$(tput sgr0)
 red=$(tput setaf 1)
 green=$(tput setaf 76)
 cyan=$(tput setaf 6)
+yellow=$(tput setaf 11)
 
 function _alert() {
   if [ "${1}" = "error" ]; then local color="${bold}${red}"; fi
-  if [ "${1}" = "warning" ]; then local color="${red}"; fi
+  if [ "${1}" = "warning" ]; then local color="${yellow}"; fi
   if [ "${1}" = "success" ]; then local color="${green}"; fi
   if [ "${1}" = "input" ]; then local color="${bold}${cyan}"; printLog="false"; fi
   if [ "${1}" = "info" ]; then local color=""; fi
+  if [ "${1}" = "header" ]; then local color="${bold}"; fi
   echo -e "$(date +"%r") ${color}$(printf "[%9s]" "${1}") ${_message}${reset}";
 }
 
 function error ()     { local _message="${*}"; echo "$(_alert error)"; }
 function warning ()   { local _message="${*}"; echo "$(_alert warning)"; }
 function info ()      { local _message="${*}"; echo "$(_alert info)"; }
+function header ()    { local _message="${*}"; echo "$(_alert header)"; }
 function success ()   { local _message="${*}"; echo "$(_alert success)"; }
 function input()      { local _message="${*}"; echo -n "$(_alert input)"; }
 
@@ -302,7 +305,7 @@ function safeExit() {
 }
 ######################
 
-info "Mac OS Setup"
+header "Mac OS Setup"
 info "This script will install your brewfile and optionally perform additional setup tasks."
 info "To begin, enter your password, to exit use Control-C"
 
