@@ -1,5 +1,4 @@
 ## Prompt
-export test="testing123"
 
 _bash_prompt_config() {
 
