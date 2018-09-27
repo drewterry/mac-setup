@@ -345,4 +345,6 @@ syncVSCodeSettings
 
 sudo -k
 
-success "Mac OS Setup Complete.  Type 'reload' to refresh shell."
+success "Mac OS Setup Complete."
+info "Type 'reload' to refresh shell."
+info "Other commands to try: 'aliases', 'functions', and 'paths'."
