@@ -18,7 +18,7 @@ echo $PATH
 
 # Finally we can source the dotfiles (order matters)
 
-for DOTFILE in "$SETUP_DIR"/dotfiles/system/.{function,path,env,alias,completion,prompt,nvm,rvm,*}; do
+for DOTFILE in "$SETUP_DIR"/dotfiles/{system/.{function,path,env,alias,completion,prompt,nvm,rvm,},custom/*}; do
   [ -f "$DOTFILE" ] && . "$DOTFILE"
   echo $DOTFILE
 done
