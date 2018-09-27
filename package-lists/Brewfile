@@ -1,34 +1,34 @@
 # Init
-cask_args appdir: '/Applications'
+cask_args appdir: "/Applications"
 
 # Dev
-brew 'git'
-cask 'visual-studio-code'
-cask 'postman'
-cask 'github'
-mas 'XCode', id: 497799835
+brew "git"
+cask "visual-studio-code"
+cask "postman"
+cask "github"
+mas "XCode", id: 497799835
 
 # Containers
-brew 'docker'
-# brew 'kompose'
-# brew 'kubernetes-cli'
-# brew 'kubernetes-helm'
-# cask 'minikube'
+brew "docker"
+# brew "kompose"
+# brew "kubernetes-cli"
+# brew "kubernetes-helm"
+# cask "minikube"
 
 # Utilities
-brew 'wget'
-brew 'tree'
-cask 'font-fira-code'
-cask 'virtualbox'
-# cask 'hyper'
-# cask 'iterm2'
-# brew 'zsh'
+brew "wget"
+brew "tree"
+cask "font-fira-code"
+cask "virtualbox"
+# cask "hyper"
+# cask "iterm2"
+# brew "zsh"
 
 # Apps
-cask 'google-chrome'
-cask 'google-drive-file-stream'
-cask 'google-backup-and-sync'
-cask 'slack'
-cask 'spotify'
-cask 'spotify-notifications'
-mas 'Todoist', id: 585829637
+cask "google-chrome"
+cask "google-drive-file-stream"
+cask "google-backup-and-sync"
+cask "slack"
+cask "spotify"
+cask "spotify-notifications"
+mas "Todoist", id: 585829637
