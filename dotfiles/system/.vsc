@@ -1,5 +1,5 @@
 # Add Visual Studio Code (code)
 
-if [ -f /Application/Visual Studio Code.app ]; then
+if [ -f "/Application/Visual Studio Code.app" ]; then
   export PATH="$PATH:/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
 fi
