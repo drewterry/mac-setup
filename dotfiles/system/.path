@@ -1,7 +1,7 @@
 # Start with system path
 # Retrieve it from getconf, otherwise it's just current $PATH
 
-if [ $(type -P getconf) ]; then 
+if [ is-executable getconf ]; then 
   PATH=$($(command -v getconf) PATH) 
 fi
 
