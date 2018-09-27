@@ -172,7 +172,7 @@ function installNode() {
 
   # Check for NVM
   . ~/.nvm/nvm.sh 2>/dev/null
-  if [ ! $(nvm --version 2>/dev/null) ]; then
+  if [[ ! $(nvm --version 2>/dev/null) ]]; then
     seek_confirmation "Couldn't find NVM. Install it?"
     if is_confirmed; then
       # curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
@@ -183,7 +183,7 @@ function installNode() {
 
       brew install nvm
 
-      . "${SETUP_DIR}/custom/.nvm"
+      . "${SETUP_DIR}/dotfiles/custom/.nvm"
       
       # nvm install --lts
 
