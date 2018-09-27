@@ -137,8 +137,10 @@ function installDotfiles() {
     read gitEmail
     git config --global --add user.email "$gitEmail"
 
+    PS1="tmp"
     . ~/.bash_profile
-
+    get PS1
+    
     success "Dotfiles Installed"
   fi
 }
