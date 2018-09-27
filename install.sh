@@ -98,11 +98,9 @@ function installBrewfile() {
         appendBrewfile ${l}
       fi
     fi
-  done <"$SETUP_DIR/Brewfile"
+  done <"$SETUP_DIR/package-lists/Brewfile"
 
-  brew bundle --file=- <<EOF
-  ${BREWFILE}
-EOF
+  brew bundle --file=- <<<${BREWFILE}
 
   brewCleanup
 
@@ -175,17 +173,30 @@ function installNode() {
   if [ ! $(nvm --version 2>/dev/null) ]; then
     seek_confirmation "Couldn't find NVM. Install it?"
     if is_confirmed; then
-      curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-      export NVM_DIR="$HOME/.nvm"
-      [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-      [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+      # curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
+      # export NVM_DIR="$HOME/.nvm"
+      # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+      # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+      # nvm install --lts
+
+      brew install nvm
+
+      . "${SETUP_DIR}/system/.nvm"
+      
       nvm install --lts
+
+      # Globally install with npm
+
+      packages=()
+      while read -r; do packages+=("$REPLY"); done <"package-lists/npm-global"
+
+      npm install -g "${packages[@]}"
       
       npm cache clean
     fi
   fi
 
-  success "NVM and Node LTS are installed"
+  success "NVM, Node LTS, and global packages are installed"
 }
 
 function configureSSH() {
@@ -298,16 +309,16 @@ info "To begin, enter your password, to exit use Control-C"
 trap "safeExit" 2
 sudo -v
 
-# installCommandLineTools
-# installHomebrew
-# brewCleanup
-# installBrewfile
+installCommandLineTools
+installHomebrew
+brewCleanup
+installBrewfile
 
 installMacOSDefaults
 installDotfiles
-# installRuby
-# installNode
-# configureSSH
-# syncVSCodeSettings
+installRuby
+installNode
+configureSSH
+syncVSCodeSettings
 
 sudo -k
