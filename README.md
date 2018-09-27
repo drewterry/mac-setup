@@ -5,7 +5,7 @@ Setup script for Mac OS X, which does the following:
 - Install CommandLineTools
 - Install Homebrew
 - Install Brewfile
- - `package-lists/Brewfile` shows all applications to be installed.  RVM and NVM are optional during installation.
+  - `package-lists/Brewfile` shows all applications to be installed.  RVM and NVM are optional during installation.
 
 The script will also prompt to do the following:
 
