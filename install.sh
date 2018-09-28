@@ -123,7 +123,13 @@ function installMacOSDefaults() {
 function installDotfiles() {
   seek_confirmation "Would you like to install custom dotfiles?"
   if is_confirmed; then
-    info "Installing Dotfiles..."
+    info "Backing up existing dotfiles..."
+
+    local BACKUP_DIR="$SETUP_DIR/dotfiles/backup"
+    ! [ -d "$BACKUP_DIR" ] && mkdir -pv "$BACKUP_DIR"
+    cp -a "$HOME/.bash_profile" "$HOME/.inputrc" "$HOME/.gitconfig" "$HOME/.gitignore" "$BACKUP_DIR"
+
+    info "Installing new dotfiles..."
 
     ln -sfv "$SETUP_DIR/dotfiles/.bash_profile" ~
     ln -sfv "$SETUP_DIR/dotfiles/.inputrc" ~
@@ -137,7 +143,7 @@ function installDotfiles() {
     read gitEmail
     git config --global --add user.email "$gitEmail"
 
-    success "Dotfiles Installed"
+    success "New Dotfiles Installed.  Old files can be found at $BACKUP_DIR"
   fi
 }
 
@@ -332,16 +338,16 @@ info "To begin, enter your password, to exit use Control-C"
 trap "safeExit" 2
 sudo -v
 
-installCommandLineTools
-installHomebrew
-installBrewfile
+# installCommandLineTools
+# installHomebrew
+# installBrewfile
 
-installMacOSDefaults
+# installMacOSDefaults
 installDotfiles
-installRuby
-installNode
-configureSSH
-syncVSCodeSettings
+# installRuby
+# installNode
+# configureSSH
+# syncVSCodeSettings
 
 sudo -k
 
