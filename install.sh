@@ -125,7 +125,7 @@ function installDotfiles() {
   if is_confirmed; then
     info "Backing up existing dotfiles..."
 
-    local BACKUP_DIR="$SETUP_DIR/dotfiles/backup"
+    local BACKUP_DIR="$SETUP_DIR/dotfiles/backup/$(date +"%Y-%m-%d %H:%M:%S")"
     ! [ -d "$BACKUP_DIR" ] && mkdir -pv "$BACKUP_DIR"
     cp -a "$HOME/.bash_profile" "$HOME/.inputrc" "$HOME/.gitconfig" "$HOME/.gitignore" "$BACKUP_DIR"
 
