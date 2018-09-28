@@ -338,16 +338,16 @@ info "To begin, enter your password, to exit use Control-C"
 trap "safeExit" 2
 sudo -v
 
-# installCommandLineTools
-# installHomebrew
-# installBrewfile
+installCommandLineTools
+installHomebrew
+installBrewfile
 
-# installMacOSDefaults
+installMacOSDefaults
 installDotfiles
-# installRuby
-# installNode
-# configureSSH
-# syncVSCodeSettings
+installRuby
+installNode
+configureSSH
+syncVSCodeSettings
 
 sudo -k
 
