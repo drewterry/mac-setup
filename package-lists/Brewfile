@@ -10,7 +10,7 @@ cask "github"
 mas "XCode", id: 497799835
 
 # Containers
-brew "docker"
+cask "docker"
 # brew "kompose"
 # brew "kubernetes-cli"
 # brew "kubernetes-helm"
