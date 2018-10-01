@@ -33,3 +33,4 @@ cask "slack"
 cask "spotify"
 cask "spotify-notifications"
 mas "Todoist", id: 585829637
+mas "OneNote", id: 784801555
