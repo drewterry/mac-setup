@@ -1,5 +1,6 @@
 # Init
 cask_args appdir: "/Applications"
+tap "caskroom/fonts"
 
 # Dev
 brew "git"
