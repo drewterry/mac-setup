@@ -19,6 +19,7 @@ cask "docker"
 # Utilities
 brew "wget"
 brew "tree"
+brew "gpg"
 cask "font-fira-code"
 cask "virtualbox"
 # cask "hyper"

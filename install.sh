@@ -138,10 +138,10 @@ function installDotfiles() {
 
     input "(gitconfig) Enter your first and last name.\n"
     read gitName
-    git config --global --add user.name "$gitName"
+    git config --global user.name "$gitName"
     input "(gitconfig) Enter your email.\n"
     read gitEmail
-    git config --global --add user.email "$gitEmail"
+    git config --global user.email "$gitEmail"
 
     success "New Dotfiles Installed.  Old files can be found at $BACKUP_DIR"
   fi
