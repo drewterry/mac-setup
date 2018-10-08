@@ -27,6 +27,8 @@ The following command will run `setup.sh`, download this repository, and execute
 bash <(curl -sL https://raw.githubusercontent.com/drewterry/mac-setup/master/setup.sh)
 ```
 
+*Note: if you fork this repository, the link above should point to the new repo.*
+
 ## Customization
 
 If you would like to tweak these files, please feel free to fork the repo.  A few helpful hints:
