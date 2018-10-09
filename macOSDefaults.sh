@@ -1,8 +1,5 @@
-# Save screenshots to the desktop
-defaults write com.apple.screencapture location -string “$HOME/Desktop”
-
-# Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
-defaults write com.apple.screencapture type -string “png”
+# Save screenshots to the ~/Screenshots
+defaults write com.apple.screencapture location -string "$HOME/Screenshots"
 
 # Disable the sound effects on boot
 sudo nvram SystemAudioVolume=%80
